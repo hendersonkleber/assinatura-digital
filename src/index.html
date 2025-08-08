@@ -1,13 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8" />
-    <title>AssinaturaDigital</title>
     <base href="/" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Assinatura digital</title>
+
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet" />
+
+    <script>
+      const THEME_PREFERENCE_LOCAL_STORAGE_KEY = 'theme_preference';
+      const DARK_MODE_CLASS_NAME = 'dark';
+      const LIGHT_MODE_CLASS_NAME = 'light';
+
+      const theme = localStorage.getItem(THEME_PREFERENCE_LOCAL_STORAGE_KEY) ?? 'auto';
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const documentClassList = this.document.documentElement.classList;
+
+      this.document.documentElement.className = '';
+      if (theme === 'dark' || (theme === 'auto' && prefersDark)) {
+        documentClassList.add(DARK_MODE_CLASS_NAME);
+      } else {
+        documentClassList.add(LIGHT_MODE_CLASS_NAME);
+      }
+    </script>
   </head>
   <body>
     <app-root></app-root>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
   </body>
 </html>
