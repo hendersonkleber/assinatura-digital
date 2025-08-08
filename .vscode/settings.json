@@ -1,0 +1,11 @@
+{
+  "prettier.requireConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.removeUnusedImports": "explicit"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
