@@ -1,59 +1,62 @@
-# AssinaturaDigital
+# ✍️ Assinatura Digital com Angular + Canvas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+![Demonstração](.github/demonstracao.gif)
 
-## Development server
+Este projeto permite que o usuário abra um modal para **desenhar sua assinatura digital** diretamente na tela, utilizando **mouse** ou **toque (touch)**, de forma simples e intuitiva.
 
-To start a local development server, run:
+Após desenhar, o usuário pode **visualizar a assinatura**, **baixar a imagem gerada** ou **refazer** o desenho, tudo sem sair da interface.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- [Angular](https://angular.io/)
+- HTML5 `<canvas>`
+- TypeScript
+
+---
+
+## 🖌️ Funcionalidades
+
+- Modal para desenhar a assinatura
+- Suporte a dispositivos com **mouse** e **touch**
+- Visualização da assinatura após o desenho
+- Opção de **refazer** a assinatura
+- **Download** da imagem gerada (PNG)
+- Layout responsivo e moderno
+
+---
+
+## ▶️ Como Executar Localmente
 
 ```bash
+# Clone o repositório
+git clone https://github.com/hendersonkleber/assinatura-digital.git
+
+# Acesse o diretório
+cd assinatura-digital
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor Angular
 ng serve
+
+# Acesse em http://localhost:4200
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🖼️ Preview
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Veja acima o GIF de demonstração ou execute localmente para experimentar a funcionalidade interativa de assinatura digital.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🙋‍♀️ Contribuições
 
-## Building
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues, relatar bugs ou sugerir melhorias.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
