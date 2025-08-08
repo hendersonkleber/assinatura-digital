@@ -5,6 +5,7 @@ import {
   THEME_LOCAL_STORAGE_KEY,
 } from '@/constants/theme.constant';
 import { Theme } from '@/types/theme.type';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { DOCUMENT } from '@angular/common';
 import { Injectable, afterNextRender, inject, signal } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -16,6 +17,7 @@ function preferedScheme(): 'dark' | 'light' {
 @Injectable({ providedIn: 'root' })
 export class ThemeManager {
   private readonly document = inject(DOCUMENT);
+  private readonly _overlayContainer = inject(OverlayContainer);
 
   readonly theme = signal<Theme>('light');
   readonly themeChanged$ = new Subject<void>();
@@ -28,6 +30,7 @@ export class ThemeManager {
     this.theme.set(theme);
     this.updateLocalStorage(theme);
     this.updateDocumentClasses(theme);
+    this.updateOverlayClasses(theme);
   }
 
   getTheme(): 'dark' | 'light' {
@@ -40,6 +43,7 @@ export class ThemeManager {
 
     this.theme.set(theme);
     this.updateDocumentClasses(theme);
+    this.updateOverlayClasses(theme);
   }
 
   private getThemeFromLocalStorage(): Theme | null {
@@ -62,5 +66,16 @@ export class ThemeManager {
     }
 
     this.themeChanged$.next();
+  }
+
+  private updateOverlayClasses(theme: 'dark' | 'light'): void {
+    const overlayClasslist = this._overlayContainer.getContainerElement().classList;
+    const oldTheme = theme === 'dark' ? 'light' : 'dark';
+
+    const classlistToRemove = Array.from(overlayClasslist).filter(item => item.includes(oldTheme));
+
+    if (classlistToRemove.length > 0) overlayClasslist.remove(...classlistToRemove);
+
+    overlayClasslist.add(theme);
   }
 }

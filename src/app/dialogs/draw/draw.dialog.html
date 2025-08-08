@@ -1,0 +1,66 @@
+<div class="relative bg-white rounded-lg shadow dark:bg-neutral-700 overflow-hidden">
+  <div class="flex items-center justify-between p-6 border-b border-neutral-200 dark:border-neutral-600">
+    <div>
+      <h3 class="text-2xl font-semibold text-neutral-900 dark:text-white">Assinatura</h3>
+      <span class="text-xs hidden md:block">Faça sua assinatura no espaço reservado</span>
+    </div>
+
+    <button
+      type="button"
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer"
+      (click)="fechar()">
+      <svg width="96" height="96" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path
+            id="Vector"
+            d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+        </g>
+      </svg>
+    </button>
+  </div>
+
+  <div class="relative min-h-[50vh] max-h-[65vh] overflow-auto">
+    <div class="absolute inset-0 h-full w-full">
+      <canvas
+        #canvas
+        class="h-full w-full touch-none"
+        (mousedown)="comecar($event)"
+        (mousemove)="desenhar($event)"
+        (mouseup)="parar()"
+        (mouseleave)="parar()"
+        (touchstart)="$event.preventDefault(); comecar($event)"
+        (touchmove)="$event.preventDefault(); desenhar($event)"
+        (touchend)="$event.preventDefault(); parar()"></canvas>
+    </div>
+  </div>
+
+  <div
+    class="flex items-center justify-end p-4 space-x-2 border-t border-neutral-200 rounded-b dark:border-neutral-600">
+    <button
+      type="button"
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer"
+      (click)="limpar()">
+      Limpar
+    </button>
+
+    <div class="flex-1"></div>
+
+    <button
+      type="button"
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer"
+      (click)="fechar()">
+      Cancelar
+    </button>
+
+    <button
+      type="button"
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer"
+      (click)="salvar()">
+      Salvar
+    </button>
+  </div>
+</div>
